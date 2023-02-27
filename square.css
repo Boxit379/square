@@ -10,29 +10,15 @@ body {
     background-color: black;
 }
 
-#outer-square {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: square 2.5s infinite linear reverse;
-    animation-play-state: paused;
-}
-
 #square {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     width: 100px;
     height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     animation: square 5s infinite linear;
-    animation-play-state: running;
-}
-
-#outer-square:hover {
-    animation-play-state: running;
 }
 
 @keyframes square {
