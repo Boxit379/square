@@ -1,7 +1,7 @@
 const square = document.getElementById('square');
 let angle = 180;
 let rotations = 0;
-let speed = 0.3;
+let speed = 0.2;
 let direction = 1;
 let squareHovered = false;
 
