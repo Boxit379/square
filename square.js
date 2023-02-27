@@ -12,6 +12,7 @@ if (localStorage.getItem('rotations')) {
     document.title = `square. [${rotations}]`;
     direction = parseInt(localStorage.getItem('direction'));
 }
+localStorage.setItem('direction', direction);
 
 // Loop
 setInterval(() => {
