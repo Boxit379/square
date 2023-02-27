@@ -30,6 +30,10 @@ setInterval(() => {
         document.title = `square. [${rotations}]`;
         localStorage.setItem('rotations', rotations);
     }
+    if (rotations == 0) {
+        document.getElementById('status').innerHTML = `square.`;
+        document.title = `square.`;
+    }
 }, 0.1);
 
 // On click
