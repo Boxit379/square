@@ -1,5 +1,8 @@
 const square = document.getElementById('square');
+let angle = 180;
 let rotations = 0;
+let speed = 0.2;
+let direction = 1;
 let squareHovered = false;
 
 // Load from local storage
@@ -7,23 +10,30 @@ if (localStorage.getItem('rotations')) {
     rotations = parseInt(localStorage.getItem('rotations'));
     document.getElementById('status').innerHTML = `square. [${rotations}]`;
     document.title = `square. [${rotations}]`;
+    direction = parseInt(localStorage.getItem('direction'));
 }
 
-square.addEventListener('animationiteration', () => {
-    if (!squareHovered) {
+// Loop
+setInterval(() => {
+    angle += direction * speed;
+    square.style.transform = `translate(-50%,-50%) rotate(${angle}deg)`;
+    if (angle >= 360) {
+        angle = 0;
         rotations++;
         document.getElementById('status').innerHTML = `square. [${rotations}]`;
         document.title = `square. [${rotations}]`;
         localStorage.setItem('rotations', rotations);
+    } else if (angle <= 0) {
+        angle = 360;
+        rotations--;
+        document.getElementById('status').innerHTML = `square. [${rotations}]`;
+        document.title = `square. [${rotations}]`;
+        localStorage.setItem('rotations', rotations);
     }
-});
+}, 0.1);
 
-// On mouse in
-square.addEventListener('mouseover', () => {
-    squareHovered = true;
-});
-
-// On mouse out
-square.addEventListener('mouseout', () => {
-    squareHovered = false;
+// On click
+square.addEventListener('click', () => {
+    direction *= -1;
+    localStorage.setItem('direction', direction);
 });
