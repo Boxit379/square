@@ -6,12 +6,14 @@ let squareHovered = false;
 if (localStorage.getItem('rotations')) {
     rotations = parseInt(localStorage.getItem('rotations'));
     document.getElementById('status').innerHTML = `square. [${rotations}]`;
+    document.title = `square. [${rotations}]`;
 }
 
 square.addEventListener('animationiteration', () => {
     if (!squareHovered) {
         rotations++;
         document.getElementById('status').innerHTML = `square. [${rotations}]`;
+        document.title = `square. [${rotations}]`;
         localStorage.setItem('rotations', rotations);
     }
 });
